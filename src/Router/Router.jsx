@@ -3,6 +3,10 @@ import Root from "../pages/Layout/Root";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Orders from "../pages/Orders/Orders";
+import Profile from "../pages/Profile/Profile";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +24,30 @@ export const router = createBrowserRouter([
       {
         path: "register",
         Component: Register,
+      },
+      {
+        path: "orders",
+        element: (
+          <PrivateRoute>
+            <Orders></Orders>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+        ),
       },
     ],
   },
